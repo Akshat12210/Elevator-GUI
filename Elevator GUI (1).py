@@ -16,7 +16,7 @@ Title = Label (window, text="Elevator", bg="black", fg="white", font="Arial 14 b
 Title.pack()
 canvas = Canvas(window, width=500, height=500)
 canvas.pack()
-elevator = canvas.create_rectangle(60, 500, 80, 440, fill="gray")
+elevator = canvas.create_rectangle(60, 500, 80, 440, fill="red")
 ###########################All the boxes and lines##########################################
 canvas.create_line(60,80,60,500, fill="black")
 canvas.create_line(80,80,80,140, fill="black")
