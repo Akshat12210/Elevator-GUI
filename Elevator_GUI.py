@@ -1,12 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import time
 import tkinter as tk
 from tkinter import *
+
+
 #############Code#####################################################
 window = Tk()
 window.title("Elevator Animation")
@@ -16,8 +12,9 @@ Title = Label (window, text="Elevator", bg="black", fg="white", font="Arial 14 b
 Title.pack()
 canvas = Canvas(window, width=500, height=500)
 canvas.pack()
-elevator = canvas.create_rectangle(60, 500, 80, 440, fill="gray")
+elevator = canvas.create_rectangle(60, 500, 80, 440, fill="grey")
 ###########################All the boxes and lines##########################################
+
 canvas.create_line(60,80,60,500, fill="black")
 canvas.create_line(80,80,80,140, fill="black")
 canvas.create_line(80,200,80,260, fill="black")
@@ -36,6 +33,7 @@ canvas.create_text(70, 470, fill="black", font="none 10 bold", text="G")
 canvas.create_text(70, 350, fill="black", font="none 10 bold", text="1")
 canvas.create_text(70, 230, fill="black", font="none 10 bold", text="2")
 canvas.create_text(70, 110, fill="black", font="none 10 bold", text="3")
+
 #################################################################################
 CURRENT_FLOOR = 0
 MOVING = 0
@@ -69,11 +67,23 @@ def move(floor):
                 time.sleep(0.05)
             MOVING = 0
     CURRENT_FLOOR = floor
+    
+def UP():
+    if CURRENT_FLOOR<3:
+        move(CURRENT_FLOOR+1)
+        
+def DOWN():
+    if CURRENT_FLOOR>0:
+        move(CURRENT_FLOOR-1)
+
 ####################################################################################################################
+
 #lambda - A lambda function can take any number of arguments, but can only have one expression.######
+
 blank1 = Label (window, text="Buttons  ", bg="black", fg="white", font="none 12 bold")
 blank1.pack(side=TOP)
 new_floor = 0
+
 while True:
     gf = Button (window, text="G", fg="green", activebackground="white", command=lambda: move(0))
     gf.place(x=132,y=560)
@@ -83,12 +93,9 @@ while True:
     floor2.place(x=260,y=560)
     floor3 = Button (window, text="3", bg="black", fg="green", activebackground="white", command=lambda: move(3))
     floor3.place(x=320,y=560)
+    up=Button(window,bg="cyan",width=3,height=2,text="Up",command=lambda: UP())
+    up.place(x=20,y=250)
+    down=Button(window,bg="cyan",width=4,height=2,text="Down",command=lambda: DOWN())
+    down.place(x=20,y=300)
     break
 mainloop()
-
-
-# In[ ]:
-
-
-
-
